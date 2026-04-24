@@ -17,3 +17,25 @@ document.getElementById("contactForm").addEventListener("submit", function(e) {
         error.textContent = "Form submitted successfully!";
     }
 });
+
+function addTask() {
+    let taskInput = document.getElementById("taskInput");
+    let task = taskInput.value;
+
+    if (task === "") return;
+
+    let li = document.createElement("li");
+    li.textContent = task;
+
+    let btn = document.createElement("button");
+    btn.textContent = "Delete";
+    btn.onclick = function() {
+        li.remove();
+    };
+
+    li.appendChild(btn);
+    document.getElementById("taskList").appendChild(li);
+
+    taskInput.value = "";
+}
+
